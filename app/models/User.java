@@ -58,7 +58,7 @@ public class User extends Model {
     /**
      * ファインダー.
      */
-    public static final Finder<Long, User> find = new Finder<Long, User>(User.class);
+    public static final Finder<Long, User> find = ModelFinder.create(User.class);
 
     @Override
     public String toString() {
