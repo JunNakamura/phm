@@ -1,6 +1,7 @@
 package services.implement;
 
 import com.avaje.ebean.Model;
+import com.avaje.ebean.PagedList;
 import models.ModelFinder;
 import models.User;
 import services.UserService;
@@ -27,7 +28,8 @@ public class UserServiceEbean implements UserService {
     }
 
     @Override
-    public List<User> findAllByPaging(int pageIndex, int pageSize) {
-        return find.findPagedList(pageIndex, pageSize).getList();
+    public PagedList<User> find(int pageIndex, int pageSize) {
+        return find.findPagedList(pageIndex, pageSize);
     }
 }
+
