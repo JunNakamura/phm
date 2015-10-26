@@ -1,4 +1,5 @@
 @(users: com.avaje.ebean.PagedList[models.User])
+@import play.i18n._
 <html >
     <head>
     <title>ユーザ一覧</title>
@@ -13,12 +14,12 @@
 
     <table border="1">
     <tr>
-    <th>employee_number</th>
-    <th>first_name</th>
-    <th>last_name</th>
-    <th>sex</th>
-    <th>birthday</th>
-    <th>hire_date</th>
+    <th>@Messages.get("User.employeeNumber")</th>
+    <th>@Messages.get("User.firstName")</th>
+    <th>@Messages.get("User.lastName")</th>
+    <th>@Messages.get("User.sex")</th>
+    <th>@Messages.get("User.birthday")</th>
+    <th>@Messages.get("User.hireDate")</th>
     </tr>
     @for(user <- users.getList()){
         <tr>
