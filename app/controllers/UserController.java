@@ -28,10 +28,11 @@ public class UserController extends Controller {
 
     /**
      * ユーザ一覧画面.
-     * @param pageIndex ページ数
+     * @param pageNumber ページ数
      * @return
      */
-    public Result index(int pageIndex) {
+    public Result index(int pageNumber) {
+        int pageIndex = pageNumber -1;
         PagedList<User> users = service.find(pageIndex, pageSize);
         return ok(userView.render(users));
     }

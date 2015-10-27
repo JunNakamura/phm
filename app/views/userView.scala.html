@@ -8,11 +8,12 @@
         <script src="@routes.Assets.versioned("javascripts/jquery.twbsPagination.js")" type="text/javascript"></script>
     </head>
     <body>
-    <p>全ページ数:@users.getTotalPageCount()</p>
-    <p>全件数:@users.getTotalRowCount()</p>
-    <p>現在のページ: @users.getPageIndex()</p>
 
     <div class="container">
+        <h1>ユーザ一覧</h1>
+        <div class="text-left">
+            <ul id="pagination" class="pagination-sm"></ul>
+        </div>
         <table class="table table-bordered table-hover">
             <tr>
                 <th>@Messages.get("User.employeeNumber")</th>
@@ -37,4 +38,12 @@
 
 
     </body>
+    <script>
+        $('#pagination').twbsPagination({
+            totalPages: @users.getTotalPageCount(),
+            startPage: @(users.getPageIndex() + 1),
+            visiblePages: 10,
+            href: '/users?page={{number}}'
+        });
+    </script>
 </html>
