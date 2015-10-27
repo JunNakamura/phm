@@ -1,0 +1,14 @@
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+.sbtserver/
+.history
+project/.sbtserver
+project/.sbtserver.lock
+project/sbt-ui.sbt
+conf/evolutions/

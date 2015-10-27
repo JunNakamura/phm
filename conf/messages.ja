@@ -1,0 +1,7 @@
+## User　
+User.employeeNumber=従業員番号
+User.firstName=姓
+User.lastName=名
+User.sex=性別
+User.birthday=生年月日
+User.hireDate=入社日

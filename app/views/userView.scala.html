@@ -1,0 +1,49 @@
+@(users: com.avaje.ebean.PagedList[models.User])
+@import play.i18n._
+<html >
+    <head>
+        <title>ユーザ一覧</title>
+        <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+        <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+        <script src="@routes.Assets.versioned("javascripts/jquery.twbsPagination.js")" type="text/javascript"></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h1>ユーザ一覧</h1>
+        <div class="text-left">
+            <ul id="pagination" class="pagination-sm"></ul>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>@Messages.get("User.employeeNumber")</th>
+                <th>@Messages.get("User.firstName")</th>
+                <th>@Messages.get("User.lastName")</th>
+                <th>@Messages.get("User.sex")</th>
+                <th>@Messages.get("User.birthday")</th>
+                <th>@Messages.get("User.hireDate")</th>
+            </tr>
+        @for(user <- users.getList()){
+            <tr>
+                <td>@user.employeeNumber</td>
+                <td>@user.firstName</td>
+                <td>@user.lastName</td>
+                <td>@user.sex</td>
+                <td>@user.birthday</td>
+                <td>@user.hireDate</td>
+            </tr>
+        }
+        </table>
+    </div>
+
+
+    </body>
+    <script>
+        $('#pagination').twbsPagination({
+            totalPages: @users.getTotalPageCount(),
+            startPage: @(users.getPageIndex() + 1),
+            visiblePages: 10,
+            href: '/users?page={{number}}'
+        });
+    </script>
+</html>
