@@ -12,26 +12,28 @@
     <p>全件数:@users.getTotalRowCount()</p>
     <p>現在のページ: @users.getPageIndex()</p>
 
-    <table border="1">
-    <tr>
-    <th>@Messages.get("User.employeeNumber")</th>
-    <th>@Messages.get("User.firstName")</th>
-    <th>@Messages.get("User.lastName")</th>
-    <th>@Messages.get("User.sex")</th>
-    <th>@Messages.get("User.birthday")</th>
-    <th>@Messages.get("User.hireDate")</th>
-    </tr>
-    @for(user <- users.getList()){
-        <tr>
-        <td>@user.employeeNumber</td>
-        <td>@user.firstName</td>
-        <td>@user.lastName</td>
-        <td>@user.sex</td>
-        <td>@user.birthday</td>
-        <td>@user.hireDate</td>
-        </tr>
-    }
-    </table>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>@Messages.get("User.employeeNumber")</th>
+                <th>@Messages.get("User.firstName")</th>
+                <th>@Messages.get("User.lastName")</th>
+                <th>@Messages.get("User.sex")</th>
+                <th>@Messages.get("User.birthday")</th>
+                <th>@Messages.get("User.hireDate")</th>
+            </tr>
+        @for(user <- users.getList()){
+            <tr>
+                <td>@user.employeeNumber</td>
+                <td>@user.firstName</td>
+                <td>@user.lastName</td>
+                <td>@user.sex</td>
+                <td>@user.birthday</td>
+                <td>@user.hireDate</td>
+            </tr>
+        }
+        </table>
+    </div>
 
 
     </body>
