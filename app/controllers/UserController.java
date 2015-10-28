@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import play.mvc.*;
 
-import views.html.userView;
+import views.html.user.userView;
 
 /**
  * ユーザコントローラ.
