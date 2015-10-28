@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import play.mvc.*;
 
 import views.html.user.userView;
+import views.html.user.newUserView;
 
 /**
  * ユーザコントローラ.
@@ -35,6 +36,23 @@ public class UserController extends Controller {
         int pageIndex = pageNumber -1;
         PagedList<User> users = service.find(pageIndex, pageSize);
         return ok(userView.render(users));
+    }
+
+    /**
+     * ユーザ新規作成画面.
+     * @return
+     */
+    public Result displayInput() {
+        //TODO
+        return ok(newUserView.render());
+    }
+
+    /**
+     * ユーザ新規作成の確認画面.
+     * @return
+     */
+    public Result confirmInputting() {
+        return ok("TODO");
     }
 
 

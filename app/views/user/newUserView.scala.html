@@ -1,0 +1,64 @@
+@()
+@import play.i18n._
+@import models.constants.Sex
+
+<html >
+<head>
+    <title>ユーザ新規作成</title>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h1>ユーザ一新規作成</h1>
+        @helper.form(action = routes.UserController.confirmInputting(), 'class -> "form-horizontal"){
+        <div class="form-group">
+            <label for="employeeNumber" class="col-sm-2 control-label">@Messages.get("User.employeeNumber")</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" id="employeeNumber" placeholder="employeeNumber">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-2 control-label">@Messages.get("User.firstName")</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" id="firstName" placeholder="firstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-2 control-label">@Messages.get("User.lastName")</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" id="lastName" placeholder="lastName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sex" class="col-sm-2 control-label">@Messages.get("User.sex")</label>
+            <div class="col-xs-2">
+                <select id="sex" class="form-control">
+                    @for(sex <- Sex.values()){
+                    <option>@sex</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthday" class="col-sm-2 control-label">@Messages.get("User.birthday")</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" id="birthday" placeholder="birthday">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hireDate" class="col-sm-2 control-label">@Messages.get("User.hireDate")</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" id="hireDate" placeholder="hireDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">確認画面へ進む</button>
+            </div>
+        </div>
+        }
+    </div>
+    </body>
+</html>
