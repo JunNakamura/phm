@@ -6,7 +6,11 @@
 <head>
     <title>ユーザ新規作成</title>
     <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap-datepicker.min.css"))'>
     <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("js/bootstrap-datepicker.min.js"))'></script>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("locales/bootstrap-datepicker.ja.min.js"))'></script>
+
     </head>
     <body>
 
@@ -44,13 +48,13 @@
         <div class="form-group">
             <label for="birthday" class="col-sm-2 control-label">@Messages.get("User.birthday")</label>
             <div class="col-xs-2">
-                <input type="text" class="form-control" id="birthday" placeholder="birthday">
+                <input type="input" class="form-control datepicker" id="birthday" placeholder="birthday">
             </div>
         </div>
         <div class="form-group">
             <label for="hireDate" class="col-sm-2 control-label">@Messages.get("User.hireDate")</label>
             <div class="col-xs-2">
-                <input type="text" class="form-control" id="hireDate" placeholder="hireDate">
+                <input type="input" class="form-control datepicker" id="hireDate" placeholder="hireDate">
             </div>
         </div>
         <div class="form-group">
@@ -61,4 +65,5 @@
         }
     </div>
     </body>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/datepicker.js")'></script>
 </html>
