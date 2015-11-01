@@ -74,7 +74,8 @@ public class UserController extends Controller {
         NewUserDto dto = userDtoForm.get();
         service.create(dto);
         Optional<User> user = service.findOne(dto.employeeNumber);
-        return ok(newUserResultView.render(user.get()));
+        Form<User> userForm = Form.form(User.class).fill(user.get());
+        return ok(newUserResultView.render(userForm));
     }
 
 

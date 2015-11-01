@@ -1,4 +1,4 @@
-@(user: models.User)
+@(form: Form[models.User])
 @import play.i18n._
 <html >
 <head>
@@ -8,15 +8,36 @@
     </head>
     <body>
 
+    @implicitField = @{ helper.FieldConstructor(myFieldConstructorTemplate.f) }
+
     <div class="container">
         <h1>ユーザ一新規作成結果</h1>
         <label>以下のユーザを作成しました。</label>
-        <p>@Messages.get("User.employeeNumber"): @user.employeeNumber</p>
-        <p>@Messages.get("User.firstName"): @user.firstName</p>
-        <p>@Messages.get("User.lastName"): @user.lastName</p>
-        <p>@Messages.get("User.sex"): @user.sex</p>
-        <p>@Messages.get("User.birthday"): @user.birthday</p>
-        <p>@Messages.get("User.hireDate"): @user.hireDate</p>
+        <form class="form-horizontal">
+            @helper.input(form("employeeNumber")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+
+            @helper.input(form("firstName")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+
+            @helper.input(form("lastName")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+
+            @helper.input(form("sex")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+
+            @helper.input(form("birthday")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+
+            @helper.input(form("hireDate")) { (id, name, value, args) =>
+                <p class="form-control-static">@value</p>
+            }
+        </form>
     </div>
     </body>
 </html>
