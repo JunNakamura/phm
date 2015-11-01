@@ -40,12 +40,14 @@ public class NewUserDto {
     /**
      * 生年月日.
      */
+    @Constraints.Required
     @Formats.DateTime(pattern = "yyyy-MM-dd")
     public Date birthday;
 
     /**
      * 入社日.
      */
+    @Constraints.Required
     @Formats.DateTime(pattern = "yyyy-MM-dd")
     public Date hireDate;
 }
