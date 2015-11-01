@@ -1,8 +1,11 @@
 package dto.user;
 
 import models.constants.Sex;
+import play.data.format.Formats;
+import play.data.validation.Constraints;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * ユーザ新規作成画面のフォームDTO
@@ -13,32 +16,38 @@ public class NewUserDto {
     /**
      * 従業員番号.
      */
+    @Constraints.Required
     public String employeeNumber;
 
     /**
      * 姓.
      */
+    @Constraints.Required
     public String firstName;
 
     /**
      * 名.
      */
+    @Constraints.Required
     public String lastName;
 
     /**
      * 性別.
      */
+    @Constraints.Required
     public Sex sex;
 
     /**
      * 生年月日.
      */
-    public LocalDate birthday;
+    @Formats.DateTime(pattern = "yyyy-MM-dd")
+    public Date birthday;
 
     /**
      * 入社日.
      */
-    public LocalDate hireDate;
+    @Formats.DateTime(pattern = "yyyy-MM-dd")
+    public Date hireDate;
 }
 
 
