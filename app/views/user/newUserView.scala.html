@@ -1,4 +1,4 @@
-@()
+@(form: Form[dto.user.NewUserDto])
 @import play.i18n._
 @import models.constants.Sex
 
@@ -14,54 +14,38 @@
     </head>
     <body>
 
+    @implicitField = @{ helper.FieldConstructor(myFieldConstructorTemplate.f) }
+
     <div class="container">
         <h1>ユーザ一新規作成</h1>
         @helper.form(action = routes.UserController.confirmInputting(), 'class -> "form-horizontal"){
-        <div class="form-group">
-            <label for="employeeNumber" class="col-sm-2 control-label">@Messages.get("User.employeeNumber")</label>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="employeeNumber" placeholder="employeeNumber">
+            @helper.input(form("employeeNumber")) { (id, name, value, args) =>
+                <input type="text" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
+            }
+
+            @helper.input(form("firstName")) { (id, name, value, args) =>
+                <input type="text" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
+            }
+
+            @helper.input(form("lastName")) { (id, name, value, args) =>
+                <input type="text" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
+            }
+
+            @helper.select(field = form("sex"), options = helper.options(Sex.valuesAsList()), 'class -> "form-control")
+
+            @helper.input(form("birthday")) { (id, name, value, args) =>
+                <input type="text" class="form-control datepicker" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
+            }
+
+            @helper.input(form("hireDate")) { (id, name, value, args) =>
+                <input type="text" class="form-control datepicker" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
+            }
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">確認画面へ進む</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="firstName" class="col-sm-2 control-label">@Messages.get("User.firstName")</label>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="firstName" placeholder="firstName">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="lastName" class="col-sm-2 control-label">@Messages.get("User.lastName")</label>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="lastName" placeholder="lastName">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="sex" class="col-sm-2 control-label">@Messages.get("User.sex")</label>
-            <div class="col-xs-2">
-                <select id="sex" class="form-control">
-                    @for(sex <- Sex.values()){
-                    <option>@sex</option>
-                    }
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="birthday" class="col-sm-2 control-label">@Messages.get("User.birthday")</label>
-            <div class="col-xs-2">
-                <input type="input" class="form-control datepicker" id="birthday" placeholder="birthday">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="hireDate" class="col-sm-2 control-label">@Messages.get("User.hireDate")</label>
-            <div class="col-xs-2">
-                <input type="input" class="form-control datepicker" id="hireDate" placeholder="hireDate">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">確認画面へ進む</button>
-            </div>
-        </div>
         }
     </div>
     </body>
