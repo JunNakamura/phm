@@ -1,8 +1,11 @@
 package controllers;
 
 import com.avaje.ebean.PagedList;
+import dto.user.NewUserDto;
 import models.User;
 import models.constants.Sex;
+import play.Logger;
+import play.data.Form;
 import play.mvc.Controller;
 import services.UserService;
 
@@ -10,8 +13,9 @@ import javax.inject.Inject;
 
 import play.mvc.*;
 
-import views.html.user.userView;
-import views.html.user.newUserView;
+import views.html.user.*;
+
+import java.util.Optional;
 
 /**
  * ユーザコントローラ.
@@ -43,8 +47,9 @@ public class UserController extends Controller {
      * @return
      */
     public Result displayInput() {
-        //TODO
-        return ok(newUserView.render());
+        //入力画面の表示なので空のフォームオブジェクトを渡す
+        Form<NewUserDto> userDtoForm = Form.form(NewUserDto.class);
+        return ok(newUserView.render(userDtoForm));
     }
 
     /**
@@ -52,7 +57,24 @@ public class UserController extends Controller {
      * @return
      */
     public Result confirmInputting() {
-        return ok("TODO");
+        Form<NewUserDto> userDtoForm = Form.form(NewUserDto.class).bindFromRequest();
+        if (userDtoForm.hasErrors()) {
+            Logger.debug("userform has erros:" + userDtoForm.errors());
+            return ok(newUserView.render(userDtoForm));
+        }
+        return ok(newUserConfirmView.render(userDtoForm));
+    }
+
+    /**
+     * ユーザの新規作成.
+     * @return
+     */
+    public Result create() {
+        Form<NewUserDto> userDtoForm = Form.form(NewUserDto.class).bindFromRequest();
+        NewUserDto dto = userDtoForm.get();
+        service.create(dto);
+        Optional<User> user = service.findOne(dto.employeeNumber);
+        return ok(newUserResultView.render(user.get()));
     }
 
 
