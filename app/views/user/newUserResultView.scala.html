@@ -1,0 +1,22 @@
+@(user: models.User)
+@import play.i18n._
+<html >
+<head>
+    <title>ユーザ一新規作成結果</title>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h1>ユーザ一新規作成結果</h1>
+        <label>以下のユーザを作成しました。</label>
+        <p>@Messages.get("User.employeeNumber"): @user.employeeNumber</p>
+        <p>@Messages.get("User.firstName"): @user.firstName</p>
+        <p>@Messages.get("User.lastName"): @user.lastName</p>
+        <p>@Messages.get("User.sex"): @user.sex</p>
+        <p>@Messages.get("User.birthday"): @user.birthday</p>
+        <p>@Messages.get("User.hireDate"): @user.hireDate</p>
+    </div>
+    </body>
+</html>
