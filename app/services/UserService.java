@@ -2,6 +2,7 @@ package services;
 
 import com.avaje.ebean.PagedList;
 import com.google.inject.ImplementedBy;
+import dto.user.NewUserDto;
 import models.User;
 import services.implement.UserServiceEbean;
 
@@ -19,7 +20,11 @@ public interface UserService {
 
     Optional<User> findOne(long id);
 
+    Optional<User> findOne(String employeeNumber);
+
     PagedList<User> find(int pageIndex, int pageSize);
+
+    void create(NewUserDto newUserDto);
 
 
 }
