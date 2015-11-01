@@ -7,6 +7,9 @@ GET     /                           controllers.Application.index()
 
 # User page
 GET     /users                      controllers.UserController.index(page: Int ?= 1)
+GET     /users/new                  controllers.UserController.displayInput()
+POST    /users/new/confirm          controllers.UserController.confirmInputting()
+POST    /users/create               controllers.UserController.create()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

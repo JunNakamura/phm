@@ -2,10 +2,14 @@ package services.implement;
 
 import com.avaje.ebean.Model;
 import com.avaje.ebean.PagedList;
+import dto.user.NewUserDto;
 import models.ModelFinder;
 import models.User;
 import services.UserService;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +32,28 @@ public class UserServiceEbean implements UserService {
     }
 
     @Override
+    public Optional<User> findOne(String employeeNumber) {
+        User user = find.where()
+                .eq("employeeNumber", employeeNumber)
+                .findUnique();
+        return Optional.ofNullable(user);
+    }
+
+    @Override
     public PagedList<User> find(int pageIndex, int pageSize) {
         return find.findPagedList(pageIndex, pageSize);
+    }
+
+    @Override
+    public void create(NewUserDto newUserDto) {
+        User user = new User();
+        user.employeeNumber = newUserDto.employeeNumber;
+        user.firstName = newUserDto.firstName;
+        user.lastName = newUserDto.lastName;
+        user.sex = newUserDto.sex;
+        user.birthday = newUserDto.birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        user.hireDate = newUserDto.hireDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        user.save();
     }
 }
 
