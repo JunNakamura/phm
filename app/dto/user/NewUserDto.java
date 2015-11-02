@@ -7,10 +7,8 @@ import play.data.validation.ValidationError;
 import services.UserService;
 import services.implement.UserServiceEbean;
 
-import javax.inject.Inject;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,14 +48,14 @@ public class NewUserDto {
      */
     @Constraints.Required
     @Formats.DateTime(pattern = "yyyy-MM-dd")
-    public Date birthday;
+    public LocalDate birthday;
 
     /**
      * 入社日.
      */
     @Constraints.Required
     @Formats.DateTime(pattern = "yyyy-MM-dd")
-    public Date hireDate;
+    public LocalDate hireDate;
 
     /**
      * 追加のバリデーション.
