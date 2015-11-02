@@ -51,8 +51,8 @@ public class UserServiceEbean implements UserService {
         user.firstName = newUserDto.firstName;
         user.lastName = newUserDto.lastName;
         user.sex = newUserDto.sex;
-        user.birthday = newUserDto.birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        user.hireDate = newUserDto.hireDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        user.birthday = newUserDto.birthday;
+        user.hireDate = newUserDto.hireDate;
         user.save();
     }
 }
