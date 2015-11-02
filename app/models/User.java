@@ -5,11 +5,9 @@ import models.constants.Sex;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * ユーザのモデルクラス.
@@ -54,6 +52,13 @@ public class User extends Model {
      * 入社日.
      */
     public LocalDate hireDate;
+
+    /**
+     * 職歴.
+     */
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<WorkExperience> workExperiences;
+
 
     /**
      * ファインダー.
