@@ -43,6 +43,19 @@ public class UserController extends Controller {
     }
 
     /**
+     * ユーザ詳細画面.
+     * @param id ユーザID.
+     * @return
+     */
+    public Result view(long id) {
+        Optional<User> userOptional = service.findOne(id);
+        Optional<Result> result = userOptional.map(user -> {
+            return ok(userDetailView.render(user));
+        });
+        return result.orElse(notFound());
+    }
+
+    /**
      * ユーザ新規作成画面.
      * @return
      */

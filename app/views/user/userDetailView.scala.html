@@ -1,0 +1,87 @@
+@(user: models.User)
+@import play.i18n._
+
+<html >
+<head>
+    <title>ユーザ詳細</title>
+    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+    <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+</head>
+<body>
+
+@implicitField = @{ helper.FieldConstructor(myFieldConstructorTemplate.f) }
+
+<div class="container">
+    <h1>ユーザ詳細</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <table class="table align-left">
+                <tr>
+                    <td class="text-right">@Messages.get("User.employeeNumber")</td>
+                    <td class="text-left">@user.employeeNumber</td>
+                </tr>
+                <tr>
+                    <td class="text-right ">@Messages.get("User.firstName")</td>
+                    <td class="text-left ">@user.firstName</td>
+                </tr>
+                <tr>
+                    <td class="text-right ">@Messages.get("User.lastName")</td>
+                    <td class="text-left ">@user.lastName</td>
+                </tr>
+                <tr>
+                    <td class="text-right ">@Messages.get("User.sex")</td>
+                    <td class="text-left ">@user.sex</td>
+                </tr>
+                <tr>
+                    <td class="text-right ">@Messages.get("User.birthday")</td>
+                    <td class="text-left ">@user.birthday</td>
+                </tr>
+                <tr>
+                    <td class="text-right ">@Messages.get("User.hireDate")</td>
+                    <td class="text-left ">@user.hireDate</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        @if(user.workExperiences.isEmpty()){
+        <p>まだ職歴が登録されていません。</p>
+        } else {
+        <p>
+            <label>職歴</label>
+        </p>
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>@Messages.get("WorkExperience.overview")</th>
+                <th>@Messages.get("WorkExperience.startDate")</th>
+                <th>@Messages.get("WorkExperience.endDate")</th>
+                <th>@Messages.get("WorkExperience.programingLanguage")</th>
+                <th>@Messages.get("WorkExperience.rdbms")</th>
+                <th>@Messages.get("WorkExperience.framework")</th>
+                <th>@Messages.get("WorkExperience.ide")</th>
+                <th>@Messages.get("WorkExperience.os")</th>
+                <th>@Messages.get("WorkExperience.vcs")</th>
+                <th>@Messages.get("WorkExperience.bts")</th>
+            </tr>
+            @for(workExperience <- user.workExperiences){
+            <tr>
+                <td>@workExperience.overview</td>
+                <td>@workExperience.startDate</td>
+                <td>@workExperience.endDate</td>
+                <td>@workExperience.programingLanguage</td>
+                <td>@workExperience.rdbms</td>
+                <td>@workExperience.framework</td>
+                <td>@workExperience.ide</td>
+                <td>@workExperience.os</td>
+                <td>@workExperience.vcs</td>
+                <td>@workExperience.bts</td>
+            </tr>
+            }
+        </table>
+        }
+    </div>
+</div>
+</body>
+</html>
