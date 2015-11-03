@@ -5,3 +5,15 @@ User.lastName=名
 User.sex=性別
 User.birthday=生年月日
 User.hireDate=入社日
+
+## WorkExperience
+WorkExperience.overview=業務概要
+WorkExperience.startDate=開始日
+WorkExperience.endDate=終了日
+WorkExperience.programingLanguage=プログラミング言語
+WorkExperience.rdbms=RDBMS
+WorkExperience.framework=フレームワーク
+WorkExperience.ide=IDE
+WorkExperience.os=OS
+WorkExperience.vcs=バージョン管理システム
+WorkExperience.bts=バグトラッキングシステム
