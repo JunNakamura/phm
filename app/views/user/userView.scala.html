@@ -25,7 +25,7 @@
             </tr>
         @for(user <- users.getList()){
             <tr>
-                <td>@user.employeeNumber</td>
+                <td><a href="@routes.UserController.view(user.id)">@user.employeeNumber</a></td>
                 <td>@user.firstName</td>
                 <td>@user.lastName</td>
                 <td>@user.sex</td>

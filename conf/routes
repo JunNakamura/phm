@@ -7,6 +7,8 @@ GET     /                           controllers.Application.index()
 
 # User page
 GET     /users                      controllers.UserController.index(page: Int ?= 1)
+GET     /users/:id                  controllers.UserController.view(id: Long)
+
 GET     /users/new                  controllers.UserController.displayInput()
 POST    /users/new/confirm          controllers.UserController.confirmInputting()
 POST    /users/create               controllers.UserController.create()
