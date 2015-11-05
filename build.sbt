@@ -30,3 +30,5 @@ flywayUser := "phm"
 flywayPassword := "phm_user"
 
 flywayLocations := Seq("filesystem:db/migration")
+
+sources in (Compile, doc) ~= (_ filter (_.getName endsWith ".java"))
