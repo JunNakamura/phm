@@ -11,6 +11,7 @@ public class LocalDateBinderModule extends AbstractModule {
 
     @Override
     public void configure() {
-        LocalDateBinder.register();
+        bind(LocalDateBinder.class).asEagerSingleton();
+        //LocalDateBinder.register();
     }
 }

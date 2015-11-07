@@ -1,5 +1,6 @@
 package modules;
 
+import org.apache.commons.lang3.StringUtils;
 import play.Logger;
 import play.data.format.Formatters;
 import play.data.format.Formatters.SimpleFormatter;
@@ -8,6 +9,7 @@ import javax.inject.Singleton;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * フォームオブジェクトでLocalDateをバインドするためのクラス.
@@ -15,7 +17,7 @@ import java.util.Locale;
  */
 public class LocalDateBinder {
 
-    private LocalDateBinder() {
+    public LocalDateBinder() {
 
         Formatters.register(LocalDate.class, new SimpleFormatter<LocalDate>() {
 
@@ -30,14 +32,20 @@ public class LocalDateBinder {
             }
         });
 
-    }
+        Formatters.register(Optional.class, new SimpleFormatter<Optional>() {
 
-    /**
-     * ファクトリメソッド.
-     * @return
-     */
-    public static LocalDateBinder register() {
-        return new LocalDateBinder();
+            @Override
+            public Optional<String> parse(String s, Locale locale) throws ParseException {
+                Logger.info("s:{}", s);
+                return StringUtils.isEmpty(s) ? Optional.<String>empty() : Optional.of(s);
+            }
+
+            @Override
+            public String print(Optional optioal, Locale locale) {
+                return optioal.toString();
+            }
+        });
+
     }
 
 

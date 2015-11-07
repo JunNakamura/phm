@@ -4,6 +4,7 @@ import com.avaje.ebean.PagedList;
 import dto.user.NewUserDto;
 import models.User;
 import models.constants.Sex;
+import modules.LocalDateBinder;
 import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
@@ -25,6 +26,9 @@ public class UserController extends Controller {
 
     @Inject
     UserService service;
+
+    @Inject
+    LocalDateBinder dateBinder;
 
     /**
      * ページングのサイズ.
