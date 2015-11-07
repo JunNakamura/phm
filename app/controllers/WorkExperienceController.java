@@ -1,7 +1,15 @@
 package controllers;
 
+import dto.workExperience.NewWorkExperienceDto;
+import modules.LocalDateBinder;
+import play.Logger;
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import views.html.workExperience.*;
+
+import javax.inject.Inject;
 
 /**
  * 職歴のコントローラクラス.
@@ -9,12 +17,31 @@ import play.mvc.Result;
  */
 public class WorkExperienceController extends Controller {
 
+    @Inject
+    LocalDateBinder dateBinder;
+
     /**
      * 職歴の追加画面.
      * @param userId
      * @return
      */
     public Result displayInput(Long userId) {
+        Form<NewWorkExperienceDto> dtoForm = Form.form(NewWorkExperienceDto.class);
+        return ok(newWorkExperienceView.render(dtoForm, userId));
+    }
+
+    /**
+     * 職歴追加の確認画面.
+     * @param userId
+     * @return
+     */
+    public Result confirmInputting(Long userId) {
+        Form<NewWorkExperienceDto> dtoForm = Form.form(NewWorkExperienceDto.class).bindFromRequest();
+        Logger.info("form:{}", dtoForm);
+        if (dtoForm.hasErrors()) {
+            Logger.debug("form errors:{}", dtoForm.errors());
+            return ok(newWorkExperienceView.render(dtoForm, userId));
+        }
         return ok("TODO");
     }
 }

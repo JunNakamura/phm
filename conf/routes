@@ -7,14 +7,15 @@ GET     /                           controllers.Application.index()
 
 # User page
 GET     /users                      controllers.UserController.index(page: Int ?= 1)
-GET     /users/:id                  controllers.UserController.view(id: Long)
+GET     /user/:id                  controllers.UserController.view(id: Long)
 
 GET     /users/new                  controllers.UserController.displayInput()
 POST    /users/new/confirm          controllers.UserController.confirmInputting()
 POST    /users/create               controllers.UserController.create()
 
 # WorkExperience
-GET    /workExperiences/:userId/new controllers.WorkExperienceController.displayInput(userId: Long)
+GET    /workExperiences/:userId/new         controllers.WorkExperienceController.displayInput(userId: Long)
+POST   /workExperiences/:userId/new/confirm controllers.WorkExperienceController.confirmInputting(userId: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
