@@ -45,13 +45,14 @@
     </div>
 
     <div class="row">
+        <p><a href="@routes.WorkExperienceController.displayInput(user.id)">職歴の追加</a></p>
         @if(user.workExperiences.isEmpty()){
         <p>まだ職歴が登録されていません。</p>
         } else {
         <p>
             <label>職歴</label>
         </p>
-
+        
         <table class="table table-striped table-bordered">
             <tr>
                 <th>@Messages.get("WorkExperience.overview")</th>
