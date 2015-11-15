@@ -32,20 +32,6 @@ public class CustomDataBinder {
             }
         });
 
-        Formatters.register(Optional.class, new SimpleFormatter<Optional>() {
-
-            @Override
-            public Optional<String> parse(String s, Locale locale) throws ParseException {
-                Logger.info("s:{}", s);
-                return StringUtils.isEmpty(s) ? Optional.<String>empty() : Optional.of(s);
-            }
-
-            @Override
-            public String print(Optional optioal, Locale locale) {
-                return optioal.toString();
-            }
-        });
-
     }
 
 

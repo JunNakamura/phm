@@ -1,5 +1,7 @@
 package dto.workExperience;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import java.time.LocalDate;
@@ -34,7 +36,7 @@ public class NewWorkExperienceDto {
     /**
      * プログラミング言語.
      */
-    public Optional<String> programingLanguage;
+    public String programingLanguage;
 
     /**
      * RDMS.
@@ -65,4 +67,9 @@ public class NewWorkExperienceDto {
      * BTS.
      */
     public String bts;
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 }
