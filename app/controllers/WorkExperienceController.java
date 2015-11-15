@@ -1,7 +1,7 @@
 package controllers;
 
 import dto.workExperience.NewWorkExperienceDto;
-import modules.LocalDateBinder;
+import modules.CustomDataBinder;
 import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
@@ -16,9 +16,6 @@ import javax.inject.Inject;
  * Created by nakamurajun on 2015/11/07.
  */
 public class WorkExperienceController extends Controller {
-
-    @Inject
-    LocalDateBinder dateBinder;
 
     /**
      * 職歴の追加画面.

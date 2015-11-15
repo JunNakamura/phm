@@ -3,8 +3,7 @@ package controllers;
 import com.avaje.ebean.PagedList;
 import dto.user.NewUserDto;
 import models.User;
-import models.constants.Sex;
-import modules.LocalDateBinder;
+import modules.CustomDataBinder;
 import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
@@ -28,7 +27,7 @@ public class UserController extends Controller {
     UserService service;
 
     @Inject
-    LocalDateBinder dateBinder;
+    CustomDataBinder dataBinder;
 
     /**
      * ページングのサイズ.
