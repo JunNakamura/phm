@@ -3,13 +3,9 @@ package services.implement;
 import com.avaje.ebean.Model;
 import com.avaje.ebean.PagedList;
 import dto.user.NewUserDto;
-import models.ModelFinder;
 import models.User;
 import services.UserService;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +15,7 @@ import java.util.Optional;
  */
 public class UserServiceEbean implements UserService {
 
-    private Model.Finder<Long, User> find = ModelFinder.create(User.class);
+    private Model.Find<Long, User> find = new Model.Find<Long, User>(){};
 
     @Override
     public List<User> findAll() {

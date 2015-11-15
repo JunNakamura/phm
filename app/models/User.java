@@ -60,11 +60,6 @@ public class User extends Model {
     public List<WorkExperience> workExperiences;
 
 
-    /**
-     * ファインダー.
-     */
-    public static final Finder<Long, User> find = ModelFinder.create(User.class);
-
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
