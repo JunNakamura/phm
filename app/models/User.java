@@ -14,14 +14,7 @@ import java.util.List;
  * Created by nakamurajun on 2015/10/25.
  */
 @Entity
-public class User extends Model {
-
-    /**
-     * DB上のID.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class User extends BasicModel {
 
     /**
      * 従業員番号.

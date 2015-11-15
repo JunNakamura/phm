@@ -15,14 +15,7 @@ import java.util.Optional;
  * Created by nakamurajun on 2015/11/02.
  */
 @Entity
-public class WorkExperience extends Model {
-
-    /**
-     * DB上のID.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class WorkExperience extends BasicModel {
 
     /**
      * 紐づくユーザ.
@@ -79,18 +72,6 @@ public class WorkExperience extends Model {
      * BTS.
      */
     public String bts;
-
-    /**
-     * 作成日.
-     */
-    @CreatedTimestamp
-    public LocalDateTime createdAt;
-
-    /**
-     * 更新日.
-     */
-    @Version
-    public LocalDateTime updatedAt;
 
     @Override
     public String toString() {
