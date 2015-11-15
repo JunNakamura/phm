@@ -17,7 +17,7 @@
 
 <div class="container">
     <h1>職歴の追加</h1>
-    @helper.form(action = routes.WorkExperienceController.confirmInputting(userId), 'class -> "form-horizontal"){
+    @helper.form(action = routes.WorkExperienceController.confirmNew(userId), 'class -> "form-horizontal"){
         @helper.input(form("overview")) { (id, name, value, args) =>
             <input type="text" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
         }

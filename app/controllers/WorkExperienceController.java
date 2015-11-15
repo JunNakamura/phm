@@ -22,7 +22,7 @@ public class WorkExperienceController extends Controller {
      * @param userId
      * @return
      */
-    public Result displayInput(Long userId) {
+    public Result displayNew(Long userId) {
         Form<NewWorkExperienceDto> dtoForm = Form.form(NewWorkExperienceDto.class);
         return ok(newWorkExperienceView.render(dtoForm, userId));
     }
@@ -32,7 +32,7 @@ public class WorkExperienceController extends Controller {
      * @param userId
      * @return
      */
-    public Result confirmInputting(Long userId) {
+    public Result confirmNew(Long userId) {
         Form<NewWorkExperienceDto> dtoForm = Form.form(NewWorkExperienceDto.class).bindFromRequest();
         Logger.info("form:{}", dtoForm);
         if (dtoForm.hasErrors()) {

@@ -18,7 +18,7 @@
 
     <div class="container">
         <h1>ユーザ一新規作成</h1>
-        @helper.form(action = routes.UserController.confirmInputting(), 'class -> "form-horizontal"){
+        @helper.form(action = routes.UserController.confirmNew(), 'class -> "form-horizontal"){
             @helper.input(form("employeeNumber")) { (id, name, value, args) =>
                 <input type="text" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@value" placeholder="@name">
             }

@@ -62,7 +62,7 @@ public class UserController extends Controller {
      * ユーザ新規作成画面.
      * @return
      */
-    public Result displayInput() {
+    public Result displayNew() {
         //入力画面の表示なので空のフォームオブジェクトを渡す
         Form<NewUserDto> userDtoForm = Form.form(NewUserDto.class);
         return ok(newUserView.render(userDtoForm));
@@ -72,7 +72,7 @@ public class UserController extends Controller {
      * ユーザ新規作成の確認画面.
      * @return
      */
-    public Result confirmInputting() {
+    public Result confirmNew() {
         Form<NewUserDto> userDtoForm = Form.form(NewUserDto.class).bindFromRequest();
         if (userDtoForm.hasErrors()) {
             Logger.debug("userform has erros:" + userDtoForm.errors());
