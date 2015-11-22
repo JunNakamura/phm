@@ -3,10 +3,10 @@ package modules;
 import com.google.inject.AbstractModule;
 
 /**
- * データバインダーの登録モジュール.
+ * アプリ開始時にDIさせるクラスを扱うモジュール.
  * Created by nakamurajun on 2015/11/03.
  */
-public class DataBinderModule extends AbstractModule {
+public class StarterModule extends AbstractModule {
 
     @Override
     public void configure() {

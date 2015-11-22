@@ -15,9 +15,10 @@ import java.util.Optional;
  * フォームオブジェクトでLocalDateをバインドするためのクラス.
  * Created by nakamurajun on 2015/11/03.
  */
+@Singleton
 public class CustomDataBinder {
 
-    public CustomDataBinder() {
+    protected CustomDataBinder() {
 
         Formatters.register(LocalDate.class, new SimpleFormatter<LocalDate>() {
 

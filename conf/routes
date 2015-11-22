@@ -5,6 +5,9 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+# Starter
+GET     /start                      controllers.StarterController.apply()
+
 # User
 GET     /users/new                  controllers.UserController.displayNew()
 POST    /users/new/confirm          controllers.UserController.confirmNew()

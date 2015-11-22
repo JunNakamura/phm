@@ -26,9 +26,6 @@ public class UserController extends Controller {
     @Inject
     UserService service;
 
-    @Inject
-    CustomDataBinder dataBinder;
-
     /**
      * ページングのサイズ.
      */
