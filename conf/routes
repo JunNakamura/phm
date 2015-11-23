@@ -18,7 +18,7 @@ GET     /users/:id                  controllers.UserController.view(id: Long)
 
 # WorkExperience
 GET    /users/:userId/workExperience/new         controllers.WorkExperienceController.displayNew(userId: Long)
-POST   /users/:userId/workExperience/new/confirm controllers.WorkExperienceController.confirmNew(userId: Long)
+POST   /users/:userId/workExperience/new/confirm create(userId: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
